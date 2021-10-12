@@ -1,0 +1,6 @@
+# 项目排除路径
+/fiume-news-admin/target/
+/fiume-news-apis/target/
+/fiume-news-common/target/
+/fiume-news-model/target/
+/fiume-news-utils/target/
