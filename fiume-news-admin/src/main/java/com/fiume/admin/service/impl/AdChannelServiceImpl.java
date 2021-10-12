@@ -44,7 +44,7 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
         }
         IPage<AdChannel> result = page(page, lambdaQueryWrapper);
         //3.结果封装
-        PageResponseResult responseResult = new PageResponseResult(dto.getPage(), dto.getSize(), (int) result.getTotal());
+        PageResponseResult responseResult = new PageResponseResult(dto.getPage(), dto.getSize(),result.getTotal());
         responseResult.setData(result.getRecords());
         return responseResult;
     }
@@ -56,6 +56,7 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
         //2.保存数据到数据库
+        adChannel.setIsDefault(false);
         adChannel.setCreatedTime(new Date());
         boolean result = save(adChannel);
         if (result) {
@@ -89,14 +90,11 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
         if (adChannel == null) {
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID, "不存在该频道");
         }
-        if (!adChannel.getStatus()) {
-            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID, "频道有效,无法删除");
-        }
         //3.删除频道
         boolean result = removeById(id);
 
         if (result) {
-            return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
+            return ResponseResult.okResult();
         }
         return ResponseResult.errorResult(AppHttpCodeEnum.SERVER_ERROR, "deleteById:从数据库删除该数据失败");
     }

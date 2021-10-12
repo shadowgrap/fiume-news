@@ -5,9 +5,9 @@ import java.io.Serializable;
 public class PageResponseResult extends ResponseResult implements Serializable {
     private Integer currentPage;
     private Integer size;
-    private Integer total;
+    private Long total;
 
-    public PageResponseResult(Integer currentPage, Integer size, Integer total) {
+    public PageResponseResult(Integer currentPage, Integer size, Long total) {
         this.currentPage = currentPage;
         this.size = size;
         this.total = total;
@@ -34,11 +34,11 @@ public class PageResponseResult extends ResponseResult implements Serializable {
         this.size = size;
     }
 
-    public int getTotal() {
+    public long getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(long total) {
         this.total = total;
     }
 }

@@ -45,7 +45,7 @@ public class AdSensitiveServiceImpl extends ServiceImpl<AdSensitiveMapper, AdSen
         }
         IPage<AdSensitive> result = page(adSensitivePage, queryWrapper);
         //3.返回结果
-        PageResponseResult responseResult = new PageResponseResult(dto.getPage(), dto.getSize(), (int) result.getTotal());
+        PageResponseResult responseResult = new PageResponseResult(dto.getPage(), dto.getSize(), result.getTotal());
         responseResult.setData(result.getRecords());
         return responseResult;
     }
@@ -103,16 +103,11 @@ public class AdSensitiveServiceImpl extends ServiceImpl<AdSensitiveMapper, AdSen
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
 
-        AdSensitive adSensitive = this.getById(id);
-        if (adSensitive == null){
-            return ResponseResult.errorResult(AppHttpCodeEnum.AP_USER_DATA_NOT_EXIST,"关键词数据不存在");
-        }
-
         boolean result = this.removeById(id);
         if (result){
             return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
         }
 
-        return ResponseResult.errorResult(AppHttpCodeEnum.SERVER_ERROR,"删除失败");
+        return ResponseResult.errorResult(AppHttpCodeEnum.SERVER_ERROR,"数据不存在");
     }
 }

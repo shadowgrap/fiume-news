@@ -9,12 +9,11 @@ import java.util.List;
 
 /**
  * 通用的结果返回类
- *
  * @param <T>
  */
 public class ResponseResult<T> implements Serializable {
 
-    private String host;
+    private String host; // 访问文件资源的前缀路径
 
     private Integer code;
 
@@ -54,26 +53,28 @@ public class ResponseResult<T> implements Serializable {
 
     public static ResponseResult okResult(Object data) {
         ResponseResult result = setAppHttpCodeEnum(AppHttpCodeEnum.SUCCESS, AppHttpCodeEnum.SUCCESS.getErrorMessage());
-        if (data != null) {
+        if(data!=null) {
             result.setData(data);
         }
         return result;
     }
-
-    public static ResponseResult errorResult(AppHttpCodeEnum enums) {
-        return setAppHttpCodeEnum(enums, enums.getErrorMessage());
+    public static ResponseResult okResult() {
+        return okResult(null);
+    }
+    public static ResponseResult errorResult(AppHttpCodeEnum enums){
+        return setAppHttpCodeEnum(enums,enums.getErrorMessage());
     }
 
-    public static ResponseResult errorResult(AppHttpCodeEnum enums, String errorMessage) {
-        return setAppHttpCodeEnum(enums, errorMessage);
+    public static ResponseResult errorResult(AppHttpCodeEnum enums, String errorMessage){
+        return setAppHttpCodeEnum(enums,errorMessage);
     }
 
-    public static ResponseResult setAppHttpCodeEnum(AppHttpCodeEnum enums) {
-        return okResult(enums.getCode(), enums.getErrorMessage());
+    public static ResponseResult setAppHttpCodeEnum(AppHttpCodeEnum enums){
+        return okResult(enums.getCode(),enums.getErrorMessage());
     }
 
-    private static ResponseResult setAppHttpCodeEnum(AppHttpCodeEnum enums, String errorMessage) {
-        return okResult(enums.getCode(), errorMessage);
+    private static ResponseResult setAppHttpCodeEnum(AppHttpCodeEnum enums, String errorMessage){
+        return okResult(enums.getCode(),errorMessage);
     }
 
     public ResponseResult<?> error(Integer code, String msg) {
@@ -134,6 +135,20 @@ public class ResponseResult<T> implements Serializable {
 
 
     public static void main(String[] args) {
+        // ResponseResult     {code: 状态码   errorMessage: 提示信息   T  data: 响应数据}
+        int code = AppHttpCodeEnum.SUCCESS.getCode();
+        String msg = AppHttpCodeEnum.SUCCESS.getErrorMessage();
+
+//        Map map = new HashMap();
+//        map.put("name","张三");
+//        map.put("age","18");
+//        ResponseResult responseResult1 = ResponseResult.okResult(map);
+//        System.out.println(JSON.toJSONString(responseResult1));
+//
+//        ResponseResult responseResult = ResponseResult.errorResult(AppHttpCodeEnum.NEED_LOGIN,"用户未登录");
+//        System.out.println(JSON.toJSONString(responseResult));
+
+
         //前置
         /*AppHttpCodeEnum success = AppHttpCodeEnum.SUCCESS;
         System.out.println(success.getCode());
@@ -157,7 +172,7 @@ public class ResponseResult<T> implements Serializable {
         System.out.println(JSON.toJSONString(result));*/
 
         //查询分页信息
-        PageResponseResult responseResult = new PageResponseResult(1, 5, 50);
+        PageResponseResult responseResult = new PageResponseResult(1,5,50L);
         List list = new ArrayList();
         list.add("itcast");
         list.add("itheima");
