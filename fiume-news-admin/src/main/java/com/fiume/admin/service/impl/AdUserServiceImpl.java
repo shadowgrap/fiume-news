@@ -12,6 +12,7 @@ import com.fiume.model.common.dtos.ResponseResult;
 import com.fiume.model.common.enums.AppHttpCodeEnum;
 import com.fiume.utils.common.AppJwtUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import java.util.HashMap;
@@ -22,6 +23,7 @@ import java.util.Map;
  * @author : Fiume
  * @since : 2021/10/12 21:12
  */
+@Service
 public class AdUserServiceImpl extends ServiceImpl<AdUserMapper, AdUser> implements AdUserService {
     /**
      * 管理员用户登录
@@ -40,8 +42,10 @@ public class AdUserServiceImpl extends ServiceImpl<AdUserMapper, AdUser> impleme
         if (adUser == null) {
             return ResponseResult.errorResult(AppHttpCodeEnum.DATA_NOT_EXIST, "用户不存在");
         }
+
         //3.dto的密码加盐加密后和数据库中的密码比较
         String password = DigestUtils.md5DigestAsHex((adUserDto.getPassword() + adUser.getSalt()).getBytes());
+        System.out.println("password = " + password);
         if (password.equals(adUser.getPassword())) {
             Map map = new HashMap<>();
             String token = AppJwtUtil.getToken(Long.valueOf(adUser.getId()));
