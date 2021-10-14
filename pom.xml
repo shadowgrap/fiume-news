@@ -21,7 +21,7 @@
         <module>fiume-news-model</module>
         <module>fiume-news-utils</module>
         <module>fiume-news-admin</module>
-        <module>fiume-news-admin-geteway</module>
+        <module>fiume-news-admin-gateway</module>
     </modules>
 
     <properties>
