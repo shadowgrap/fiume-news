@@ -4,6 +4,7 @@ import com.alibaba.cloud.commons.lang.StringUtils;
 import com.fiume.util.AppJwtUtil;
 import io.jsonwebtoken.Claims;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.cloud.gateway.config.GatewayProperties;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.annotation.Order;
