@@ -1,4 +1,4 @@
-package com.fiume.admin;
+package com.fiume.user;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
@@ -7,20 +7,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 
+/**
+ * User微服务
+ *
+ * @author fiume
+ */
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.fiume.admin.mapper")
-public class Application {
+@MapperScan("com.fiume.user.mapper")
+public class UserApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(UserApplication.class, args);
     }
 
-    /**
-     * mp的分页插件
-     * @return
-     */
     @Bean
-    public PaginationInterceptor paginationInterceptor() {
+    PaginationInterceptor paginationInterceptor(){
         return new PaginationInterceptor();
     }
 }

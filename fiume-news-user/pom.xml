@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>fiume-news-admin</artifactId>
+    <artifactId>fiume-news-user</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -57,12 +57,6 @@
             <artifactId>nacos-client</artifactId>
             <version>2.0.3</version>
         </dependency>
-
-        <!--校验功能使用
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>-->
     </dependencies>
 
 </project>

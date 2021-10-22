@@ -1,12 +1,8 @@
-package com.fiume.common.knife4j;
+package com.fiume.user.config;/*
+package com.fiume.admin.config;
 
-import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.core.annotation.Order;
-import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -17,32 +13,23 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+*/
 /**
  * @author : Fiume
- * @since : 2021/10/9 18:32
- */
+ * @since : 2021/10/8 17:53
+ *//*
+
 @EnableSwagger2
 @Configuration
-@EnableKnife4j
-@Import(BeanValidatorPluginsConfiguration.class)
-public class Swagger2Configuration {
+public class SwaggerConfiguration {
 
     public static final String TAG_1 = "channel";
-    public static final String TAG_2 = "sensitive";
-    public static final String TAG_3 = "AdLogin";
-    public static final String TAG_4 = "ApUserRealname";
 
-
-    @Bean("defaultApi2")
-    @Order(value = 1)
+    @Bean
     public Docket buildDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(buildApiInfo())
-                .groupName("1.0")
                 .tags(new Tag(TAG_1,"频道管理API"))
-                .tags(new Tag(TAG_2,"敏感词管理API"))
-                .tags(new Tag(TAG_3,"admin登录管理API"))
-                .tags(new Tag(TAG_4,"apUser实名认证管理API"))
                 .select()
                 //要扫描的API基础包
                 .apis(RequestHandlerSelectors.basePackage("com.fiume"))
@@ -59,5 +46,5 @@ public class Swagger2Configuration {
                 .version("1.0.0")
                 .build();
     }
-
 }
+*/

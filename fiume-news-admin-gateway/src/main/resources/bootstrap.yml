@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: news-admin-gateway
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.25.41.55:8848
+#      config:
+#        server-addr: 172.25.41.55:8848
+#        file-extension: yml

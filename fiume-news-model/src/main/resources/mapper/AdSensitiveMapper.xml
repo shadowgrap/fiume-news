@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="generator.mapper.AdSensitiveMapper">
+<mapper namespace="com.fiume.admin.mapper.AdSensitiveMapper">
 
     <resultMap id="BaseResultMap" type="com.fiume.model.admin.pojos.AdSensitive">
             <id property="id" column="id" jdbcType="INTEGER"/>

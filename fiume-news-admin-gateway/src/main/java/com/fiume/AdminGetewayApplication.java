@@ -6,8 +6,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class GetewayApplication {
+public class AdminGetewayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(GetewayApplication.class, args);
+        SpringApplication.run(AdminGetewayApplication.class, args);
     }
 }
