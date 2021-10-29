@@ -24,6 +24,7 @@
         <module>fiume-news-admin-gateway</module>
         <module>fiume-news-user</module>
         <module>fiume-news-wemedia</module>
+        <module>fiume-news-article</module>
     </modules>
 
     <properties>

@@ -10,7 +10,7 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://192.168.2.164:3308/leadnews_wemedia?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://172.25.41.55:3307/leadnews_wemedia?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
 # 设置Mapper接口所对应的XML文件位置，如果你在Mapper接口中有自定义方法，需要进行该配置
 mybatis-plus:

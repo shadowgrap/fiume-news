@@ -4,7 +4,7 @@ spring:
   application:
     name: news-admin
   datasource:
-    url: jdbc:mysql://192.168.2.164:3308/leadnews_admin?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://172.25.41.55:3307/leadnews_admin?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
 #    data-username: root
 #    data-password: root

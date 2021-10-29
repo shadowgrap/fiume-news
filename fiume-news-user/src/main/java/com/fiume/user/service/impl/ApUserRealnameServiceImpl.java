@@ -39,7 +39,7 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
         //2.封装条件
         //page条件
         Page<ApUserRealname> realnamePage = new Page<>(dto.getPage(), dto.getSize());
-        LambdaQueryWrapper<ApUserRealname> wrapper = Wrappers.<ApUserRealname>lambdaQuery();
+        LambdaQueryWrapper<ApUserRealname> wrapper = Wrappers.lambdaQuery();
         // 添加查询条件,即当前用户状态查询,如果用户想要查询特定状态的信息
         if (dto.getStatus() != null){
             wrapper.eq(ApUserRealname::getStatus,dto.getStatus());
